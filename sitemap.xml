@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Replace {{DOMAIN}} with your live domain before deployment -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://{{DOMAIN}}/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://{{DOMAIN}}/about.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://{{DOMAIN}}/products.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://{{DOMAIN}}/products-kitchen-faucets.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://{{DOMAIN}}/products-basin-faucets.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://{{DOMAIN}}/products-shower-systems.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://{{DOMAIN}}/products-smart-faucets.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://{{DOMAIN}}/products-valves-drains.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://{{DOMAIN}}/products-bathroom-accessories.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://{{DOMAIN}}/contact.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://{{DOMAIN}}/faq.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://{{DOMAIN}}/privacy.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+</urlset>
