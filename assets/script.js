@@ -1,4 +1,4 @@
-/* EUTOOM — site interactions: nav, i18n (EN/RU/PT), forms, FAQ */
+/* EUTOOM — site interactions: nav, i18n (EN/RU/PT/HI), forms, FAQ */
 (function () {
   "use strict";
 
@@ -7,15 +7,6 @@
   var burger = document.querySelector(".burger");
   var mobileMenu = document.querySelector(".mobile-menu");
   var onDark = nav && nav.classList.contains("nav--on-dark");
-
-  if (nav) {
-    var onScroll = function () {
-      nav.classList.toggle("scrolled", window.scrollY > 12);
-      if (onDark && window.scrollY > 12) nav.classList.remove("nav--on-dark");
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
-  }
 
   function bindBurger() {
     if (burger && mobileMenu) {
@@ -231,72 +222,6 @@
     });
   });
 
-  /* ---------------- Lightbox ---------------- */
-  var lb = document.createElement("div");
-  lb.className = "lightbox";
-  lb.innerHTML =
-    '<button class="lightbox__close" aria-label="Close">&times;</button>' +
-    '<button class="lightbox__nav lightbox__prev" aria-label="Previous">&#8249;</button>' +
-    '<button class="lightbox__nav lightbox__next" aria-label="Next">&#8250;</button>' +
-    '<img class="lightbox__img" src="" alt="">' +
-    '<span class="lightbox__counter"></span>';
-  document.body.appendChild(lb);
-
-  var lbImg = lb.querySelector(".lightbox__img");
-  var lbCounter = lb.querySelector(".lightbox__counter");
-  var lbGroup = [];
-  var lbIndex = 0;
-
-  function lbShow(src) {
-    lbImg.src = src;
-    lb.classList.add("open");
-    document.body.style.overflow = "hidden";
-  }
-  function lbClose() {
-    lb.classList.remove("open");
-    document.body.style.overflow = "";
-    lbImg.src = "";
-  }
-  function lbPrev() {
-    if (lbGroup.length < 2) return;
-    lbIndex = (lbIndex - 1 + lbGroup.length) % lbGroup.length;
-    lbImg.src = lbGroup[lbIndex];
-    lbCounter.textContent = (lbIndex + 1) + " / " + lbGroup.length;
-  }
-  function lbNext() {
-    if (lbGroup.length < 2) return;
-    lbIndex = (lbIndex + 1) % lbGroup.length;
-    lbImg.src = lbGroup[lbIndex];
-    lbCounter.textContent = (lbIndex + 1) + " / " + lbGroup.length;
-  }
-
-  lb.querySelector(".lightbox__close").addEventListener("click", lbClose);
-  lb.querySelector(".lightbox__prev").addEventListener("click", lbPrev);
-  lb.querySelector(".lightbox__next").addEventListener("click", lbNext);
-  lb.addEventListener("click", function (e) { if (e.target === lb) lbClose(); });
-  document.addEventListener("keydown", function (e) {
-    if (!lb.classList.contains("open")) return;
-    if (e.key === "Escape") lbClose();
-    if (e.key === "ArrowLeft") lbPrev();
-    if (e.key === "ArrowRight") lbNext();
-  });
-
-  document.querySelectorAll("[data-lightbox]").forEach(function (img) {
-    img.style.cursor = "zoom-in";
-    img.addEventListener("click", function () {
-      var group = img.getAttribute("data-lightbox");
-      var items = document.querySelectorAll('[data-lightbox="' + group + '"]');
-      lbGroup = [];
-      lbIndex = 0;
-      items.forEach(function (item, i) {
-        lbGroup.push(item.src);
-        if (item === img) lbIndex = i;
-      });
-      lbShow(lbGroup[lbIndex]);
-      lbCounter.textContent = (lbIndex + 1) + " / " + lbGroup.length;
-    });
-  });
-
   /* ---------------- Scroll reveal ---------------- */
   var revealEls = document.querySelectorAll("[data-reveal]");
   if (revealEls.length && "IntersectionObserver" in window) {
@@ -311,22 +236,6 @@
     revealEls.forEach(function (el) { observer.observe(el); });
   } else {
     revealEls.forEach(function (el) { el.classList.add("revealed"); });
-  }
-
-  /* ---------------- Hero parallax ---------------- */
-  var heroBg = document.querySelector(".hero__bg");
-  if (heroBg) {
-    heroBg.classList.add("parallax-ready");
-    var rafId = 0;
-    window.addEventListener("scroll", function () {
-      cancelAnimationFrame(rafId);
-      rafId = requestAnimationFrame(function () {
-        var y = window.scrollY;
-        if (y < window.innerHeight * 1.2) {
-          heroBg.style.transform = "translateY(" + (y * 0.3) + "px)";
-        }
-      });
-    }, { passive: true });
   }
 
   /* ---------------- Stats counter animation ---------------- */
@@ -377,44 +286,6 @@
     if (tip) li.setAttribute("data-tip", tip);
   });
 
-  /* ---------------- Back to top button ---------------- */
-  var btt = document.createElement("button");
-  btt.className = "back-top";
-  btt.setAttribute("aria-label", "Back to top");
-  btt.innerHTML = '<svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>';
-  document.body.appendChild(btt);
-  btt.addEventListener("click", function () { window.scrollTo({ top: 0, behavior: "smooth" }); });
-  window.addEventListener("scroll", function () {
-    btt.classList.toggle("show", window.scrollY > 400);
-  }, { passive: true });
-
-  /* ---------------- Side quote float ---------------- */
-  var sideQuote = document.createElement("a");
-  sideQuote.className = "side-quote";
-  sideQuote.href = "contact.html";
-  sideQuote.textContent = "GET A QUOTE →";
-  document.body.appendChild(sideQuote);
-  var sqShown = false;
-  window.addEventListener("scroll", function () {
-    var show = window.scrollY > 600;
-    if (show !== sqShown) { sqShown = show; sideQuote.classList.toggle("show", show); }
-  }, { passive: true });
-
-  /* ---------------- Cookie bar ---------------- */
-  var COOKIE_KEY = "eutoom_cookie_ok";
-  if (!localStorage.getItem(COOKIE_KEY)) {
-    var cb = document.createElement("div");
-    cb.className = "cookie-bar";
-    cb.innerHTML = '<div class="wrap"><p>We use cookies to improve your experience. By continuing you agree to our <a href="privacy.html">Privacy Policy</a>.</p><button class="cookie-bar__btn">ACCEPT</button></div>';
-    document.body.appendChild(cb);
-    cb.querySelector(".cookie-bar__btn").addEventListener("click", function () {
-      localStorage.setItem(COOKIE_KEY, "1");
-      cb.classList.remove("show");
-      setTimeout(function () { cb.remove(); }, 500);
-    });
-    setTimeout(function () { cb.classList.add("show"); }, 1200);
-  }
-
   /* ---------------- Product tabs (detail pages) ---------------- */
   document.querySelectorAll(".prod-tabs").forEach(function (tabs) {
     var btns = tabs.querySelectorAll(".prod-tab");
@@ -451,67 +322,207 @@
     if (imgs[0]) imgs[0].classList.add("is-active");
   });
 
-  /* ---------------- Quick inquiry modal ---------------- */
-  var qiOverlay = document.createElement("div");
-  qiOverlay.className = "qi-overlay";
-  qiOverlay.innerHTML =
-    '<div class="qi-modal">' +
-    '<button class="qi-close" aria-label="Close">&times;</button>' +
-    '<h3>Quick Inquiry</h3>' +
-    '<form class="qi-form">' +
-    '<div class="field"><label>Name <b>*</b></label><input type="text" name="name" required></div>' +
-    '<div class="field"><label>Email <b>*</b></label><input type="email" name="email" required></div>' +
-    '<div class="field"><label>WhatsApp / Phone</label><input type="text" name="whatsapp"></div>' +
-    '<div class="field"><label>Models & Quantity</label><textarea name="models" rows="3" style="min-height:80px"></textarea></div>' +
-    '<input type="hidden" name="product" value="">' +
-    '<button type="submit" class="btn btn--dark" style="width:100%;justify-content:center;margin-top:8px">SEND INQUIRY</button>' +
-    '</form>' +
-    '</div>';
-  document.body.appendChild(qiOverlay);
+  /* ================================================================
+     DEFERRED — all below runs after page load to avoid blocking FCP
+     ================================================================ */
+  function onReady() {
+    /* ---- Lightbox (lazy-created) ---- */
+    var lb = document.createElement("div");
+    lb.className = "lightbox";
+    lb.innerHTML =
+      '<button class="lightbox__close" aria-label="Close">&times;</button>' +
+      '<button class="lightbox__nav lightbox__prev" aria-label="Previous">&#8249;</button>' +
+      '<button class="lightbox__nav lightbox__next" aria-label="Next">&#8250;</button>' +
+      '<img class="lightbox__img" src="" alt="">' +
+      '<span class="lightbox__counter"></span>';
+    document.body.appendChild(lb);
 
-  function qiOpen(productName) {
-    qiOverlay.querySelector("[name=product]").value = productName || "";
-    qiOverlay.querySelector("h3").textContent = productName ? "Inquiry: " + productName : "Quick Inquiry";
-    qiOverlay.classList.add("open");
-    document.body.style.overflow = "hidden";
-  }
-  function qiClose() {
-    qiOverlay.classList.remove("open");
-    document.body.style.overflow = "";
-  }
-  qiOverlay.querySelector(".qi-close").addEventListener("click", qiClose);
-  qiOverlay.addEventListener("click", function (e) { if (e.target === qiOverlay) qiClose(); });
-  document.addEventListener("keydown", function (e) { if (e.key === "Escape" && qiOverlay.classList.contains("open")) qiClose(); });
+    var lbImg = lb.querySelector(".lightbox__img");
+    var lbCounter = lb.querySelector(".lightbox__counter");
+    var lbGroup = [];
+    var lbIndex = 0;
 
-  qiOverlay.querySelector(".qi-form").addEventListener("submit", function (e) {
-    e.preventDefault();
-    var d = {};
-    new FormData(this).forEach(function (v, k) { d[k] = v; });
-    var mailto = "mailto:eutoom888@Outlook.com" +
-      "?subject=" + encodeURIComponent("[EUTOOM Quick Inquiry] " + (d.product || "Product Inquiry")) +
-      "&body=" + encodeURIComponent("Name: " + (d.name || "") + "\nEmail: " + (d.email || "") + "\nWhatsApp: " + (d.whatsapp || "") + "\nProduct: " + (d.product || "") + "\nModels & Qty:\n" + (d.models || ""));
-    window.location.href = mailto;
-    qiClose();
-  });
+    function lbShow(src) {
+      lbImg.src = src;
+      lb.classList.add("open");
+      document.body.style.overflow = "hidden";
+    }
+    function lbClose() {
+      lb.classList.remove("open");
+      document.body.style.overflow = "";
+      lbImg.src = "";
+    }
+    function lbPrev() {
+      if (lbGroup.length < 2) return;
+      lbIndex = (lbIndex - 1 + lbGroup.length) % lbGroup.length;
+      lbImg.src = lbGroup[lbIndex];
+      lbCounter.textContent = (lbIndex + 1) + " / " + lbGroup.length;
+    }
+    function lbNext() {
+      if (lbGroup.length < 2) return;
+      lbIndex = (lbIndex + 1) % lbGroup.length;
+      lbImg.src = lbGroup[lbIndex];
+      lbCounter.textContent = (lbIndex + 1) + " / " + lbGroup.length;
+    }
 
-  document.querySelectorAll(".qi-btn").forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      var card = btn.closest(".prod-card");
-      var name = card ? (card.querySelector(".prod-card__name") || {}).textContent : "";
-      qiOpen(name);
+    lb.querySelector(".lightbox__close").addEventListener("click", lbClose);
+    lb.querySelector(".lightbox__prev").addEventListener("click", lbPrev);
+    lb.querySelector(".lightbox__next").addEventListener("click", lbNext);
+    lb.addEventListener("click", function (e) { if (e.target === lb) lbClose(); });
+    document.addEventListener("keydown", function (e) {
+      if (!lb.classList.contains("open")) return;
+      if (e.key === "Escape") lbClose();
+      if (e.key === "ArrowLeft") lbPrev();
+      if (e.key === "ArrowRight") lbNext();
     });
-  });
 
-  /* ---------------- Inquiry bar (product detail pages) ---------------- */
-  var inquiryBar = document.querySelector(".inquiry-bar");
-  if (inquiryBar) {
+    document.querySelectorAll("[data-lightbox]").forEach(function (img) {
+      img.style.cursor = "zoom-in";
+      img.addEventListener("click", function () {
+        var group = img.getAttribute("data-lightbox");
+        var items = document.querySelectorAll('[data-lightbox="' + group + '"]');
+        lbGroup = [];
+        lbIndex = 0;
+        items.forEach(function (item, i) {
+          lbGroup.push(item.src);
+          if (item === img) lbIndex = i;
+        });
+        lbShow(lbGroup[lbIndex]);
+        lbCounter.textContent = (lbIndex + 1) + " / " + lbGroup.length;
+      });
+    });
+
+    /* ---- Back to top (lazy-created) ---- */
+    var btt = document.createElement("button");
+    btt.className = "back-top";
+    btt.setAttribute("aria-label", "Back to top");
+    btt.innerHTML = '<svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>';
+    document.body.appendChild(btt);
+    btt.addEventListener("click", function () { window.scrollTo({ top: 0, behavior: "smooth" }); });
+
+    /* ---- Side quote float (lazy-created) ---- */
+    var sideQuote = document.createElement("a");
+    sideQuote.className = "side-quote";
+    sideQuote.href = "contact.html";
+    sideQuote.textContent = "GET A QUOTE →";
+    document.body.appendChild(sideQuote);
+    var sqShown = false;
+
+    /* ---- Quick inquiry modal (lazy-created) ---- */
+    var qiOverlay = document.createElement("div");
+    qiOverlay.className = "qi-overlay";
+    qiOverlay.innerHTML =
+      '<div class="qi-modal">' +
+      '<button class="qi-close" aria-label="Close">&times;</button>' +
+      '<h3>Quick Inquiry</h3>' +
+      '<form class="qi-form">' +
+      '<div class="field"><label>Name <b>*</b></label><input type="text" name="name" required></div>' +
+      '<div class="field"><label>Email <b>*</b></label><input type="email" name="email" required></div>' +
+      '<div class="field"><label>WhatsApp / Phone</label><input type="text" name="whatsapp"></div>' +
+      '<div class="field"><label>Models & Quantity</label><textarea name="models" rows="3" style="min-height:80px"></textarea></div>' +
+      '<input type="hidden" name="product" value="">' +
+      '<button type="submit" class="btn btn--dark" style="width:100%;justify-content:center;margin-top:8px">SEND INQUIRY</button>' +
+      '</form>' +
+      '</div>';
+    document.body.appendChild(qiOverlay);
+
+    function qiOpen(productName) {
+      qiOverlay.querySelector("[name=product]").value = productName || "";
+      qiOverlay.querySelector("h3").textContent = productName ? "Inquiry: " + productName : "Quick Inquiry";
+      qiOverlay.classList.add("open");
+      document.body.style.overflow = "hidden";
+    }
+    function qiClose() {
+      qiOverlay.classList.remove("open");
+      document.body.style.overflow = "";
+    }
+    qiOverlay.querySelector(".qi-close").addEventListener("click", qiClose);
+    qiOverlay.addEventListener("click", function (e) { if (e.target === qiOverlay) qiClose(); });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape" && qiOverlay.classList.contains("open")) qiClose(); });
+
+    qiOverlay.querySelector(".qi-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      var d = {};
+      new FormData(this).forEach(function (v, k) { d[k] = v; });
+      var mailto = "mailto:eutoom888@Outlook.com" +
+        "?subject=" + encodeURIComponent("[EUTOOM Quick Inquiry] " + (d.product || "Product Inquiry")) +
+        "&body=" + encodeURIComponent("Name: " + (d.name || "") + "\nEmail: " + (d.email || "") + "\nWhatsApp: " + (d.whatsapp || "") + "\nProduct: " + (d.product || "") + "\nModels & Qty:\n" + (d.models || ""));
+      window.location.href = mailto;
+      qiClose();
+    });
+
+    document.querySelectorAll(".qi-btn").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var card = btn.closest(".prod-card");
+        var name = card ? (card.querySelector(".prod-card__name") || {}).textContent : "";
+        qiOpen(name);
+      });
+    });
+
+    /* ---- Cookie bar (lazy-created) ---- */
+    var COOKIE_KEY = "eutoom_cookie_ok";
+    if (!localStorage.getItem(COOKIE_KEY)) {
+      var cb = document.createElement("div");
+      cb.className = "cookie-bar";
+      cb.innerHTML = '<div class="wrap"><p>We use cookies to improve your experience. By continuing you agree to our <a href="privacy.html">Privacy Policy</a>.</p><button class="cookie-bar__btn">ACCEPT</button></div>';
+      document.body.appendChild(cb);
+      cb.querySelector(".cookie-bar__btn").addEventListener("click", function () {
+        localStorage.setItem(COOKIE_KEY, "1");
+        cb.classList.remove("show");
+        setTimeout(function () { cb.remove(); }, 500);
+      });
+      setTimeout(function () { cb.classList.add("show"); }, 2000);
+    }
+
+    /* ---- Merged scroll handler (single listener) ---- */
+    var heroBg = document.querySelector(".hero__bg");
+    var inquiryBar = document.querySelector(".inquiry-bar");
     var barShown = false;
-    window.addEventListener("scroll", function () {
-      var shouldShow = window.scrollY > 400;
-      if (shouldShow !== barShown) {
-        barShown = shouldShow;
-        inquiryBar.classList.toggle("show", shouldShow);
-      }
-    }, { passive: true });
+    var rafId = 0;
+    var ticking = false;
+
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () {
+        var y = window.scrollY;
+
+        // Nav scroll
+        if (nav) {
+          nav.classList.toggle("scrolled", y > 12);
+          if (onDark && y > 12) nav.classList.remove("nav--on-dark");
+        }
+
+        // Hero parallax
+        if (heroBg && y < window.innerHeight * 1.2) {
+          heroBg.style.transform = "translateY(" + (y * 0.3) + "px)";
+        }
+
+        // Back to top
+        if (btt) btt.classList.toggle("show", y > 400);
+
+        // Side quote
+        var showSq = y > 600;
+        if (showSq !== sqShown) { sqShown = showSq; sideQuote.classList.toggle("show", showSq); }
+
+        // Inquiry bar
+        if (inquiryBar) {
+          var shouldShow = y > 400;
+          if (shouldShow !== barShown) { barShown = shouldShow; inquiryBar.classList.toggle("show", shouldShow); }
+        }
+
+        ticking = false;
+      });
+    }
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  }
+
+  // Defer heavy work to after page load
+  if (document.readyState === "complete") {
+    onReady();
+  } else {
+    window.addEventListener("load", onReady);
   }
 })();
