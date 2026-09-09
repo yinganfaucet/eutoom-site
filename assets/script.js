@@ -313,6 +313,195 @@
     revealEls.forEach(function (el) { el.classList.add("revealed"); });
   }
 
+  /* ---------------- Hero parallax ---------------- */
+  var heroBg = document.querySelector(".hero__bg");
+  if (heroBg) {
+    heroBg.classList.add("parallax-ready");
+    var rafId = 0;
+    window.addEventListener("scroll", function () {
+      cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(function () {
+        var y = window.scrollY;
+        if (y < window.innerHeight * 1.2) {
+          heroBg.style.transform = "translateY(" + (y * 0.3) + "px)";
+        }
+      });
+    }, { passive: true });
+  }
+
+  /* ---------------- Stats counter animation ---------------- */
+  var statNums = document.querySelectorAll(".stat__num");
+  if (statNums.length && "IntersectionObserver" in window) {
+    var countObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var el = entry.target;
+        if (el.dataset.counted) return;
+        el.dataset.counted = "1";
+        el.classList.add("counting");
+        var raw = el.textContent.trim();
+        var suffix = "";
+        var target = parseInt(raw.replace(/[^0-9]/g, ""), 10) || 0;
+        var prefix = raw.match(/^[^0-9]*/)[0];
+        suffix = raw.replace(/^[^0-9]*[0-9]+/, "");
+        var duration = 1600;
+        var start = performance.now();
+        function tick(now) {
+          var p = Math.min((now - start) / duration, 1);
+          var ease = 1 - Math.pow(1 - p, 3);
+          var val = Math.round(target * ease);
+          el.textContent = prefix + val + suffix;
+          if (p < 1) requestAnimationFrame(tick);
+          else { el.textContent = raw; el.classList.remove("counting"); }
+        }
+        requestAnimationFrame(tick);
+        countObserver.unobserve(el);
+      });
+    }, { threshold: 0.3 });
+    statNums.forEach(function (el) { countObserver.observe(el); });
+  }
+
+  /* ---------------- Factory tag tooltips ---------------- */
+  var tagTips = {
+    "Casting & Machining": "Sand casting & CNC precision machining for brass bodies",
+    "Embossing": "Decorative surface embossing and pattern stamping",
+    "Polishing": "Multi-stage polishing to mirror or satin finish",
+    "Brushed Metal": "Directional brushing for matte textured surfaces",
+    "Electroplating": "Chrome, PVD, or electroplated finish application",
+    "Assembly": "Component fitting, cartridge installation & leak testing",
+    "Testing": "Pressure, flow-rate and salt-spray quality testing"
+  };
+  document.querySelectorAll(".factory__tags li").forEach(function (li) {
+    var text = li.textContent.trim();
+    var tip = tagTips[text] || "";
+    if (tip) li.setAttribute("data-tip", tip);
+  });
+
+  /* ---------------- Back to top button ---------------- */
+  var btt = document.createElement("button");
+  btt.className = "back-top";
+  btt.setAttribute("aria-label", "Back to top");
+  btt.innerHTML = '<svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>';
+  document.body.appendChild(btt);
+  btt.addEventListener("click", function () { window.scrollTo({ top: 0, behavior: "smooth" }); });
+  window.addEventListener("scroll", function () {
+    btt.classList.toggle("show", window.scrollY > 400);
+  }, { passive: true });
+
+  /* ---------------- Side quote float ---------------- */
+  var sideQuote = document.createElement("a");
+  sideQuote.className = "side-quote";
+  sideQuote.href = "contact.html";
+  sideQuote.textContent = "GET A QUOTE →";
+  document.body.appendChild(sideQuote);
+  var sqShown = false;
+  window.addEventListener("scroll", function () {
+    var show = window.scrollY > 600;
+    if (show !== sqShown) { sqShown = show; sideQuote.classList.toggle("show", show); }
+  }, { passive: true });
+
+  /* ---------------- Cookie bar ---------------- */
+  var COOKIE_KEY = "eutoom_cookie_ok";
+  if (!localStorage.getItem(COOKIE_KEY)) {
+    var cb = document.createElement("div");
+    cb.className = "cookie-bar";
+    cb.innerHTML = '<div class="wrap"><p>We use cookies to improve your experience. By continuing you agree to our <a href="privacy.html">Privacy Policy</a>.</p><button class="cookie-bar__btn">ACCEPT</button></div>';
+    document.body.appendChild(cb);
+    cb.querySelector(".cookie-bar__btn").addEventListener("click", function () {
+      localStorage.setItem(COOKIE_KEY, "1");
+      cb.classList.remove("show");
+      setTimeout(function () { cb.remove(); }, 500);
+    });
+    setTimeout(function () { cb.classList.add("show"); }, 1200);
+  }
+
+  /* ---------------- Product tabs (detail pages) ---------------- */
+  document.querySelectorAll(".prod-tabs").forEach(function (tabs) {
+    var btns = tabs.querySelectorAll(".prod-tab");
+    var panels = [];
+    btns.forEach(function (btn) {
+      var panel = document.getElementById(btn.dataset.tab);
+      if (panel) panels.push({ btn: btn, panel: panel });
+      btn.addEventListener("click", function () {
+        panels.forEach(function (p) {
+          p.btn.classList.remove("is-active");
+          p.panel.classList.remove("is-active");
+        });
+        btn.classList.add("is-active");
+        if (panel) panel.classList.add("is-active");
+      });
+    });
+  });
+
+  /* ---------------- Product thumbnail switcher ---------------- */
+  document.querySelectorAll(".prod-card__thumbs").forEach(function (thumbs) {
+    var card = thumbs.closest(".prod-card");
+    if (!card) return;
+    var mainImg = card.querySelector(".prod-card__img");
+    var imgs = thumbs.querySelectorAll("img");
+    if (!mainImg || !imgs.length) return;
+    imgs.forEach(function (thumb) {
+      thumb.addEventListener("click", function () {
+        imgs.forEach(function (t) { t.classList.remove("is-active"); });
+        thumb.classList.add("is-active");
+        mainImg.src = thumb.src;
+        mainImg.alt = thumb.alt;
+      });
+    });
+    if (imgs[0]) imgs[0].classList.add("is-active");
+  });
+
+  /* ---------------- Quick inquiry modal ---------------- */
+  var qiOverlay = document.createElement("div");
+  qiOverlay.className = "qi-overlay";
+  qiOverlay.innerHTML =
+    '<div class="qi-modal">' +
+    '<button class="qi-close" aria-label="Close">&times;</button>' +
+    '<h3>Quick Inquiry</h3>' +
+    '<form class="qi-form">' +
+    '<div class="field"><label>Name <b>*</b></label><input type="text" name="name" required></div>' +
+    '<div class="field"><label>Email <b>*</b></label><input type="email" name="email" required></div>' +
+    '<div class="field"><label>WhatsApp / Phone</label><input type="text" name="whatsapp"></div>' +
+    '<div class="field"><label>Models & Quantity</label><textarea name="models" rows="3" style="min-height:80px"></textarea></div>' +
+    '<input type="hidden" name="product" value="">' +
+    '<button type="submit" class="btn btn--dark" style="width:100%;justify-content:center;margin-top:8px">SEND INQUIRY</button>' +
+    '</form>' +
+    '</div>';
+  document.body.appendChild(qiOverlay);
+
+  function qiOpen(productName) {
+    qiOverlay.querySelector("[name=product]").value = productName || "";
+    qiOverlay.querySelector("h3").textContent = productName ? "Inquiry: " + productName : "Quick Inquiry";
+    qiOverlay.classList.add("open");
+    document.body.style.overflow = "hidden";
+  }
+  function qiClose() {
+    qiOverlay.classList.remove("open");
+    document.body.style.overflow = "";
+  }
+  qiOverlay.querySelector(".qi-close").addEventListener("click", qiClose);
+  qiOverlay.addEventListener("click", function (e) { if (e.target === qiOverlay) qiClose(); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape" && qiOverlay.classList.contains("open")) qiClose(); });
+
+  qiOverlay.querySelector(".qi-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var d = {};
+    new FormData(this).forEach(function (v, k) { d[k] = v; });
+    var mailto = "mailto:eutoom888@Outlook.com" +
+      "?subject=" + encodeURIComponent("[EUTOOM Quick Inquiry] " + (d.product || "Product Inquiry")) +
+      "&body=" + encodeURIComponent("Name: " + (d.name || "") + "\nEmail: " + (d.email || "") + "\nWhatsApp: " + (d.whatsapp || "") + "\nProduct: " + (d.product || "") + "\nModels & Qty:\n" + (d.models || ""));
+    window.location.href = mailto;
+    qiClose();
+  });
+
+  document.querySelectorAll(".qi-btn").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var card = btn.closest(".prod-card");
+      var name = card ? (card.querySelector(".prod-card__name") || {}).textContent : "";
+      qiOpen(name);
+    });
+  });
+
   /* ---------------- Inquiry bar (product detail pages) ---------------- */
   var inquiryBar = document.querySelector(".inquiry-bar");
   if (inquiryBar) {
