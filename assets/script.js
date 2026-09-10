@@ -35,7 +35,7 @@
     en: {
       "nav.home": "Home", "nav.about": "About", "nav.products": "Products", "nav.faq": "FAQ", "nav.contact": "Contact",
       "nav.inquiry": "Get a Quote", "nav.en": "EN",
-      "hero.eyebrow": "Quanzhou · Since 2006", "hero.h1": "Bathroom Hardware,<br>Fine-Crafted", "hero.lead": "Bathroom & kitchen faucet manufacturer with dual factories in Wenzhou and Quanzhou — serving importers across North America, the Middle East and beyond.",
+      "hero.eyebrow": "Quanzhou · Since 2006", "hero.h1": "Bathroom Hardware,<br><em>Fine-Crafted</em>", "hero.lead": "Bathroom & kitchen faucet manufacturer with dual factories in Wenzhou and Quanzhou — serving importers across North America, the Middle East and beyond.",
       "hero.btn1": "Explore Products", "hero.btn2": "Send Inquiry", "hero.meta1": "Two Factories — Wenzhou & Quanzhou", "hero.meta2": "Global Export · EN / RU / PT / HI",
       "stats.years": "Years of Experience", "stats.factories": "Production Bases", "stats.markets": "Export Regions", "stats.crafts": "Crafting Stages",
       "zones.eyebrow": "Product Lines", "zones.title": "Two Ranges, One Standard",
@@ -58,7 +58,7 @@
     ru: {
       "nav.home": "Главная", "nav.about": "О нас", "nav.products": "Продукция", "nav.faq": "Вопросы", "nav.contact": "Контакты",
       "nav.inquiry": "Запросить цену", "nav.en": "EN",
-      "hero.eyebrow": "Чжунчжоу · с 2006 года", "hero.h1": "Сантехника,<br>Изысканное исполнение", "hero.lead": "Производитель смесителей для ванной и кухни с двумя заводами в Вэньчжоу и Чжунчжоу — поставка импортёрам Северной Америки, Ближнего Востока и других регионов.",
+      "hero.eyebrow": "Чжунчжоу · с 2006 года", "hero.h1": "Сантехника,<br><em>Изысканное исполнение</em>", "hero.lead": "Производитель смесителей для ванной и кухни с двумя заводами в Вэньчжоу и Чжунчжоу — поставка импортёрам Северной Америки, Ближнего Востока и других регионов.",
       "hero.btn1": "Смотреть каталог", "hero.btn2": "Отправить запрос", "hero.meta1": "Два завода — Вэньчжоу и Чжунчжоу", "hero.meta2": "Экспорт по миру · EN / RU / PT / HI",
       "stats.years": "Лет опыта", "stats.factories": "Производственные базы", "stats.markets": "Регионов экспорта", "stats.crafts": "Этапов обработки",
       "zones.eyebrow": "Линейки продукции", "zones.title": "Две линейки. Один стандарт.",
@@ -81,7 +81,7 @@
     pt: {
       "nav.home": "Início", "nav.about": "Sobre", "nav.products": "Produtos", "nav.faq": "Dúvidas", "nav.contact": "Contato",
       "nav.inquiry": "Pedir Cotação", "nav.en": "EN",
-      "hero.eyebrow": "Quanzhou · desde 2006", "hero.h1": "Metais Sanitários,<br>Acabamento Fino", "hero.lead": "Fabricante de torneiras de banheiro e cozinha com duas fábricas em Wenzhou e Quanzhou — atendendo importadores da América do Norte, Oriente Médio e outros mercados.",
+      "hero.eyebrow": "Quanzhou · desde 2006", "hero.h1": "Metais Sanitários,<br><em>Acabamento Fino</em>", "hero.lead": "Fabricante de torneiras de banheiro e cozinha com duas fábricas em Wenzhou e Quanzhou — atendendo importadores da América do Norte, Oriente Médio e outros mercados.",
       "hero.btn1": "Ver Produtos", "hero.btn2": "Enviar Pedido", "hero.meta1": "Duas fábricas — Wenzhou & Quanzhou", "hero.meta2": "Exportação Global · EN / RU / PT / HI",
       "stats.years": "Anos de Experiência", "stats.factories": "Bases de Produção", "stats.markets": "Regiões de Exportação", "stats.crafts": "Etapas de Acabamento",
       "zones.eyebrow": "Linhas de Produto", "zones.title": "Duas linhas. Um padrão.",
@@ -104,7 +104,7 @@
     hi: {
       "nav.home": "होम", "nav.about": "हमारे बारे में", "nav.products": "उत्पाद", "nav.faq": "सामान्य प्रश्न", "nav.contact": "सम्पर्क",
       "nav.inquiry": "भावमांग करें", "nav.en": "EN",
-      "hero.eyebrow": "चूंझोउ · 2006 से", "hero.h1": "बाथरूम हार्डवेयर,<br>बारीक शिल्प", "hero.lead": "बाथरूम अंद किचन टैप निर्माता, जिसके पास वेनजोउ अंद चूंझोउ में दो कार्खाने हैं — उत्तर अमेरिका, मध्य पूर्व अंद अन्य बाजारों में अयातकों की सेवां।",
+      "hero.eyebrow": "चूंझोउ · 2006 से", "hero.h1": "बाथरूम हार्डवेयर,<br><em>बारीक शिल्प</em>", "hero.lead": "बाथरूम अंद किचन टैप निर्माता, जिसके पास वेनजोउ अंद चूंझोउ में दो कार्खाने हैं — उत्तर अमेरिका, मध्य पूर्व अंद अन्य बाजारों में अयातकों की सेवां।",
       "hero.btn1": "उत्पाद देखें", "hero.btn2": "प्रश्न भेजें", "hero.meta1": "दो कार्खाने — वेनजोउ अंद चूंझोउ", "hero.meta2": "वैश्विक निर्यात · EN / RU / PT / HI",
       "stats.years": "वर्षों का अनुभव", "stats.factories": "उत्पादन आधार", "stats.markets": "निर्यात क्षेत्र", "stats.crafts": "निर्मां चरं",
       "zones.eyebrow": "उत्पाद श्रृखला", "zones.title": "दो श्रेषीं, एक मानक",
