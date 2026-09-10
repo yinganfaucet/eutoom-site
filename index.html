@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="image" href="assets/img/hero-main.webp">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Oswald:wght@400;500;600&family=Noto+Sans+Devanagari:wght@400;500;600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/styles.css">
   <script type="application/ld+json">
   {
@@ -38,7 +38,7 @@
 </head>
 <body>
 
-<header class="nav nav--on-dark">
+<header class="nav">
   <div class="wrap nav__inner">
     <a class="logo" href="index.html">EUTOOM<b>.</b><small>QUANZHOU GUOLAN</small></a>
     <nav class="nav__links" aria-label="Main">
@@ -106,8 +106,8 @@
   </div>
 </section>
 
-<!-- ============ ZONES ============ -->
-<section class="section section--mist">
+<!-- ============ PRODUCT CATEGORIES ============ -->
+<section class="section">
   <div class="wrap">
     <div class="section-head section-head--split" data-reveal>
       <div>
@@ -117,34 +117,72 @@
       <p class="lead" data-i18n="zone1.desc">Kitchen taps, basin mixers, shower systems, smart faucets, valves and hardware — developed, manufactured and exported from our own factories.</p>
     </div>
 
-    <div class="zones">
-      <article class="zone" data-reveal>
-        <p class="zone__no">Range 01</p>
-        <h3 class="h-3 zone__title" data-i18n="zone1.title">Faucets &amp; Showers</h3>
-        <ul class="zone__list">
-          <li>Kitchen Faucets</li>
-          <li>Basin Mixers</li>
-          <li>Shower Systems</li>
-          <li>Smart Sensor Faucets</li>
-          <li>Valves, Drains &amp; Scuppers</li>
-          <li>Bathroom Accessory Sets</li>
-        </ul>
-        <a class="zone__link" href="products.html#faucets" data-i18n="zone.link">View Range <span class="arr">→</span></a>
-      </article>
+    <div class="prod-grid" style="grid-template-columns:repeat(3,1fr)">
+      <a class="prod-card" href="products-kitchen-faucets.html" data-reveal>
+        <div class="prod-card__media"><img class="prod-card__img" src="assets/img/k1-1.webp" alt="Kitchen Faucets" loading="lazy" width="600" height="600"></div>
+        <div class="prod-card__body">
+          <h3 class="prod-card__name">Kitchen Faucets</h3>
+          <p class="prod-card__meta">Pull-out, gooseneck, high-arc commercial &amp; wall-mounted designs.</p>
+          <p class="prod-card__models">Series 83xx · 84xx</p>
+        </div>
+      </a>
 
-      <article class="zone" data-reveal>
+      <a class="prod-card" href="products-basin-faucets.html" data-reveal>
+        <div class="prod-card__media"><img class="prod-card__img" src="assets/img/b1-1.webp" alt="Basin Mixers" loading="lazy" width="600" height="600"></div>
+        <div class="prod-card__body">
+          <h3 class="prod-card__name">Basin Mixers</h3>
+          <p class="prod-card__meta">Hot &amp; cold, pull-out, swivel and waterfall-design washbasin taps.</p>
+          <p class="prod-card__models">Series 80xx · 81xx · 86xx</p>
+        </div>
+      </a>
+
+      <a class="prod-card" href="products-shower-systems.html" data-reveal>
+        <div class="prod-card__media"><img class="prod-card__img" src="assets/img/s1-1.webp" alt="Shower Systems" loading="lazy" width="600" height="600"></div>
+        <div class="prod-card__body">
+          <h3 class="prod-card__name">Shower Systems</h3>
+          <p class="prod-card__meta">Column sets, thermostatic, LED digital, concealed &amp; simple sets.</p>
+          <p class="prod-card__models">Series 70xx · 71xx</p>
+        </div>
+      </a>
+
+      <a class="prod-card" href="products-smart-faucets.html" data-reveal>
+        <div class="prod-card__media"><img class="prod-card__img" src="assets/img/m1-1.webp" alt="Smart Sensor Faucets" loading="lazy" width="600" height="600"></div>
+        <div class="prod-card__body">
+          <h3 class="prod-card__name">Smart Sensor Faucets</h3>
+          <p class="prod-card__meta">Automatic infrared touch-free faucets for commercial &amp; home use.</p>
+          <p class="prod-card__models">Series 30xx</p>
+        </div>
+      </a>
+
+      <a class="prod-card" href="products-valves-drains.html" data-reveal>
+        <div class="prod-card__media"><img class="prod-card__img" src="assets/img/v1-1.webp" alt="Valves, Drains &amp; Scuppers" loading="lazy" width="600" height="600"></div>
+        <div class="prod-card__body">
+          <h3 class="prod-card__name">Valves, Drains &amp; Scuppers</h3>
+          <p class="prod-card__meta">Angle valves, flush valves, basin scuppers, hose pipes &amp; floor drains.</p>
+          <p class="prod-card__models">Series 60xx · 63xx · 65xx · 66xx</p>
+        </div>
+      </a>
+
+      <a class="prod-card" href="products-bathroom-accessories.html" data-reveal>
+        <div class="prod-card__media"><img class="prod-card__img" src="assets/img/a1-1.webp" alt="Bathroom Accessories" loading="lazy" width="600" height="600"></div>
+        <div class="prod-card__body">
+          <h3 class="prod-card__name">Bathroom Accessories</h3>
+          <p class="prod-card__meta">6-piece accessory sets: towel bars, toilet brush, soap dish, corner basket.</p>
+          <p class="prod-card__models">Series 100 · 200 · 300 · 501 · 700 · 801 · 900</p>
+        </div>
+      </a>
+    </div>
+
+    <div class="zones mt-3" style="grid-template-columns:1fr" data-reveal>
+      <article class="zone" style="padding:30px 34px;background:var(--paper);border-style:dashed">
         <span class="zone__badge" data-i18n="zone.soon">Lineup in preparation</span>
-        <p class="zone__no">Range 02</p>
-        <h3 class="h-3 zone__title" data-i18n="zone2.title">Toilets &amp; Vanity</h3>
-        <p class="zone__desc" data-i18n="zone2.desc">Smart toilets, vanities and sanitary ware for complete bathroom projects. A dedicated range — product lines are being finalized for launch.</p>
-        <ul class="zone__list">
-          <li>Smart Toilets</li>
-          <li>Bathroom Vanities</li>
-          <li>Sanitary Ware</li>
-          <li>Project Supply</li>
-        </ul>
-        <a class="zone__link" href="products.html#toilet-vanity" data-i18n="zone.link">View Range <span class="arr">→</span></a>
+        <h3 class="h-3 zone__title" style="display:inline;margin-right:18px" data-i18n="zone2.title">Toilets &amp; Vanity</h3>
+        <span style="font-size:13.5px;color:var(--gray)">Smart toilets, vanities and sanitary ware — a dedicated range being finalized for launch. <a class="zone__link" href="products.html#toilet-vanity" style="margin-left:6px">View Range <span class="arr">→</span></a></span>
       </article>
+    </div>
+
+    <div class="center mt-3" data-reveal>
+      <a class="btn btn--dark" href="products.html">View Full Catalog <span class="arr">→</span></a>
     </div>
   </div>
 </section>
@@ -168,7 +206,7 @@
       <a class="btn btn--gold" href="about.html"><span data-i18n="nav.about">About</span> <span class="arr">→</span></a>
     </div>
     <div>
-      <p class="h-3" style="color:var(--gold)" data-i18n="factory.markets">Export Markets</p>
+      <p class="h-3" style="color:var(--gold-soft)" data-i18n="factory.markets">Export Markets</p>
       <ul class="factory__markets mt-1">
         <li>North America</li>
         <li>Middle East</li>

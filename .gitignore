@@ -1,5 +1,7 @@
 ﻿_*.py
 _extract/
+_reference_audit/
+_qa_shots/
 __pycache__/
 .DS_Store
 Thumbs.db
