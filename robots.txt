@@ -1,5 +1,4 @@
-User-agent: *
+﻿User-agent: *
 Allow: /
 
-# Replace {{DOMAIN}} with your live domain before deployment
-Sitemap: https://{{DOMAIN}}/sitemap.xml
+Sitemap: https://eutoom.com/sitemap.xml

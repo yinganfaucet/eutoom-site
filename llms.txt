@@ -1,26 +1,49 @@
 # EUTOOM — Quanzhou Guolan Trading Co., Ltd.
 
-> Bathroom & kitchen hardware manufacturer, China. Founded 2006. Two factories: Wenzhou (Zhejiang, 2006) and Quanzhou (Fujian, 2019).
+Bathroom and kitchen hardware manufacturer and exporter based in China. EUTOOM is the export brand of Quanzhou Guolan Trading Co., Ltd.
+
+## Company
+- Legal name: Quanzhou Guolan Trading Co., Ltd.
+- Brand: EUTOOM
+- Founded: 2006
+- Business type: Manufacturer / Export trader (OEM & ODM)
+- Factories: Two own factories — Wenzhou (Zhejiang, operating since 2006) and Quanzhou (Fujian, operating since 2019)
+- HQ address: No. 1111 Maosheng Road, Meilin Street, Nan'an City, Fujian, China
+- Website: https://eutoom.com/
+- Email: eutoom888@Outlook.com
+- Phone / WhatsApp: +86 137 9925 9581
 
 ## What we make
-- Kitchen faucets (pull-out, gooseneck, high-arc commercial, wall-mounted) — model series 83xx/84xx
-- Basin mixers (hot & cold, pull-out, swivel, waterfall-design) — model series 80xx/81xx/86xx
-- Shower systems (rain sets, thermostatic, LED digital, concealed, simple sets) — model series 70xx/71xx
-- Smart sensor faucets (infrared automatic) — model series 30xx
-- Angle valves, bidet sprays, flush valves, scuppers, hose pipes, floor drains — model series 60xx/63xx/65xx/66xx
-- Bathroom accessory 6-piece sets — series 100/200/300/501/700/801/900
-- Toilets & vanities — range being finalized for launch
+EUTOOM designs, manufactures and exports bathroom and kitchen hardware:
+- Kitchen faucets — pull-out, gooseneck, high-arc commercial spring taps, wall-mounted (model series 83xx / 84xx)
+- Basin mixers — hot & cold, pull-out, 360° swivel, waterfall-design (model series 80xx / 81xx / 86xx)
+- Shower systems — rain sets, thermostatic, LED digital, concealed, simple sets (model series 70xx / 71xx)
+- Smart sensor faucets — infrared automatic touch-free (model series 30xx)
+- Valves, drains & scuppers — angle valves, bidet sprays, flush valves, hose pipes, floor drains (model series 60xx / 63xx / 65xx / 66xx)
+- Bathroom accessories — 6-piece coordinated sets (series 100 / 200 / 300 / 501 / 700 / 801 / 900)
+- Toilets & vanities — a dedicated sanitary-ware range currently being finalized for launch
 
 ## Finishes
-Polished chrome (A), matte black (B), gold/brass (C), gunmetal/brushed grey (E), two-tone black-gold (BC) and chrome-gold (CH).
+Polished chrome (A), matte black (B), gold / brass (C), gunmetal / brushed grey (E), and two-tone black-gold (BC) and chrome-gold (CH).
 
-## Contact
-- Email: eutoom888@Outlook.com
-- WhatsApp / Phone: +86 137 9925 9581
-- Address: No. 1111 Maosheng Road, Meilin Street, Nan'an City, Fujian, China
+## Buyer services
+- OEM / ODM and private-label manufacturing are supported
+- Sample arrangements available for most catalog models
+- Custom tooling and branding artwork on request
+- Export documents and consolidation for container shipments
 
 ## Markets
-Europe, North America, South America, Africa, the Middle East, Central Asia, Southeast Asia (focus: North America & Middle East).
+Exports to Europe, North America, South America, Africa, the Middle East, Central Asia and Southeast Asia, with a focus on North America and the Middle East.
 
-## Website
-- https://{{DOMAIN}}/ — replace with live domain after deployment
+## Key pages
+- https://eutoom.com/ — Homepage: company overview and product ranges
+- https://eutoom.com/products.html — Full product catalog
+- https://eutoom.com/products-kitchen-faucets.html — Kitchen faucets collection
+- https://eutoom.com/products-basin-faucets.html — Basin mixers collection
+- https://eutoom.com/products-shower-systems.html — Shower systems collection
+- https://eutoom.com/products-smart-faucets.html — Smart sensor faucets
+- https://eutoom.com/products-valves-drains.html — Valves, drains & scuppers
+- https://eutoom.com/products-bathroom-accessories.html — Bathroom accessory sets
+- https://eutoom.com/about.html — Company background and factories
+- https://eutoom.com/faq.html — Buyer FAQ (ranges, finishes, OEM/ODM, samples, lead time, certifications)
+- https://eutoom.com/contact.html — Contact and inquiry form
