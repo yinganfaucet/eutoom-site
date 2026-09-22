@@ -245,15 +245,24 @@ input, select, textarea { font-family: inherit; font-size: inherit; }
 
 
 /* ---------- Image Logo Styles ---------- */
-.logo-img-link { display: inline-flex; align-items: center; text-decoration: none; }
+.logo-img-link { 
+  display: inline-flex; 
+  align-items: center; 
+  justify-content: center;
+  text-decoration: none; 
+  height: 60px; /* Constrain container height */
+  width: 180px; /* Constrain container width */
+  overflow: hidden; /* Hide the extreme top/bottom whitespace */
+  position: relative;
+}
 .site-logo {
-  height: 55px; /* Adjust based on navbar height */
+  position: absolute;
+  height: 380px; /* Make the square extremely huge so the middle text is big */
   width: auto;
+  max-width: none; /* override any framework default */
   object-fit: contain;
-  /* The logo has a white background and dark text. 
-     Since our site is dark, we invert it so the background becomes black and text becomes white.
-     Then we use screen blend mode to make the black background totally transparent, matching the dark nav perfectly! */
-  filter: invert(1) brightness(1.2) contrast(1.1);
+  /* Dark mode blending */
+  filter: invert(1) brightness(1.3) contrast(1.1);
   mix-blend-mode: screen;
   transition: opacity 0.3s ease;
 }
@@ -262,12 +271,16 @@ input, select, textarea { font-family: inherit; font-size: inherit; }
 }
 
 @media (max-width: 768px) {
+  .logo-img-link {
+    height: 50px;
+    width: 140px;
+  }
   .site-logo {
-    height: 40px;
+    height: 300px;
   }
 }
 
 /* Adjust footer logo margin if needed */
-.footer__grid .site-logo {
+.footer__grid .logo-img-link {
   margin-bottom: 20px;
 }
