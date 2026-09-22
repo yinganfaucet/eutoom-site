@@ -252,26 +252,43 @@ input, select, textarea { font-family: inherit; font-size: inherit; }
   text-decoration: none; 
 }
 .site-logo {
-  height: 48px; /* Clean, sensible size */
+  height: 60px; /* Enhanced size for desktop */
   width: auto;
   max-width: none;
   object-fit: contain;
   /* Dark mode blending */
-  filter: invert(1) brightness(1.3) contrast(1.1);
+  filter: invert(1) brightness(1.4) contrast(1.1);
   mix-blend-mode: screen;
-  transition: opacity 0.3s ease;
+  transition: height 0.3s var(--ease), opacity 0.3s ease;
 }
 .logo-img-link:hover .site-logo {
   opacity: 0.8;
 }
 
-@media (max-width: 768px) {
+/* Slightly scale down when navbar shrinks on scroll */
+.nav.scrolled .site-logo {
+  height: 50px;
+}
+
+@media (max-width: 1024px) {
   .site-logo {
-    height: 36px;
+    height: 52px;
   }
 }
 
-/* Adjust footer logo margin if needed */
+@media (max-width: 768px) {
+  .site-logo {
+    height: 44px;
+  }
+  .nav.scrolled .site-logo {
+    height: 38px;
+  }
+}
+
+/* Adjust footer logo: make it prominent */
+.footer__grid .site-logo {
+  height: 70px; 
+}
 .footer__grid .logo-img-link {
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
