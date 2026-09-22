@@ -242,3 +242,32 @@ input, select, textarea { font-family: inherit; font-size: inherit; }
 .nav__cta > a { display: none; } /* Hide raw links if they leaked outside dropdown */
 .nav__cta .lang-dropdown a { display: block; } /* Show only inside dropdown */
 .nav__cta > .btn { display: inline-flex; } /* Keep the CTA button visible */
+
+
+/* ---------- Image Logo Styles ---------- */
+.logo-img-link { display: inline-flex; align-items: center; text-decoration: none; }
+.site-logo {
+  height: 55px; /* Adjust based on navbar height */
+  width: auto;
+  object-fit: contain;
+  /* The logo has a white background and dark text. 
+     Since our site is dark, we invert it so the background becomes black and text becomes white.
+     Then we use screen blend mode to make the black background totally transparent, matching the dark nav perfectly! */
+  filter: invert(1) brightness(1.2) contrast(1.1);
+  mix-blend-mode: screen;
+  transition: opacity 0.3s ease;
+}
+.logo-img-link:hover .site-logo {
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .site-logo {
+    height: 40px;
+  }
+}
+
+/* Adjust footer logo margin if needed */
+.footer__grid .site-logo {
+  margin-bottom: 20px;
+}
