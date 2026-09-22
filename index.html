@@ -223,33 +223,45 @@
 <!-- ============ FACTORY ============ -->
 <section class="section section--black">
   <div class="wrap factory__grid">
-    <div>
+    <div data-reveal>
       <p class="eyebrow" data-i18n="factory.eyebrow">The Factories</p>
       <h2 class="h-2" data-i18n="factory.title">Two Bases. One Integrated Supply Chain.</h2>
       <p class="lead mt-2" style="color:rgba(255,255,255,.66)" data-i18n="factory.text">Established in 2006 in Wenzhou, Zhejiang, and expanded in 2019 to Quanzhou, Fujian — we control the core stages of bathroom hardware production under one supply system.</p>
-      <ul class="factory__tags" data-i18n-list="factory.tags">
-        <li>Casting &amp; Machining</li>
-        <li>Embossing</li>
-        <li>Polishing</li>
-        <li>Brushed Metal</li>
-        <li>Electroplating</li>
-        <li>Assembly</li>
-        <li>Testing</li>
-      </ul>
-      <a class="btn btn--gold" href="about.html"><span data-i18n="nav.about">About</span> <span class="arr">→</span></a>
+      
+      <div class="factory__visuals mt-3">
+        <div class="factory__main-img">
+          <img src="assets/img/factory/factory-exterior.webp" alt="EUTOOM Quanzhou Factory Building" loading="lazy" width="800" height="600">
+        </div>
+        <div class="factory__side-imgs">
+          <img src="assets/img/factory/factory-cnc.webp" alt="Advanced CNC Machinery" loading="lazy" width="400" height="300">
+          <img src="assets/img/factory/factory-assembly.webp" alt="Production and Assembly Line" loading="lazy" width="400" height="300">
+        </div>
+      </div>
+
+      <div class="factory__stats mt-3">
+        <div class="stat-item">
+          <span class="stat-item__val">2006</span>
+          <span class="stat-item__label" data-i18n="factory.founded">Founded</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-item__val">2</span>
+          <span class="stat-item__label" data-i18n="factory.units">Factories</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-item__val">20+</span>
+          <span class="stat-item__label" data-i18n="factory.years">Years Focus</span>
+        </div>
+      </div>
     </div>
-    <div>
-      <p class="h-3" style="color:var(--gold-soft)" data-i18n="factory.markets">Export Markets</p>
-      <ul class="factory__markets mt-1">
-        <li>North America</li>
-        <li>Middle East</li>
-        <li>Europe</li>
-        <li>South America</li>
-        <li>Africa</li>
-        <li>Central Asia</li>
-        <li>Southeast Asia</li>
+    <div data-reveal>
+      <h3 class="h-3" style="color:var(--gold-soft)" data-i18n="factory.markets">Export Markets</h3>
+      <ul class="factory__markets">
+        <li data-i18n="factory.m1">Europe &amp; North America</li>
+        <li data-i18n="factory.m2">The Middle East &amp; Central Asia</li>
+        <li data-i18n="factory.m3">Southeast Asia &amp; Africa</li>
+        <li data-i18n="factory.m4">South America</li>
       </ul>
-      <p class="factory__note">Certifications, factory videos and full specifications are shared with qualified buyers on request.</p>
+      <p class="factory__note" data-i18n="factory.note">Full documentation, factory audits, and certifications are available for professional buyers on request.</p>
     </div>
   </div>
 </section>

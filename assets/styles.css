@@ -236,6 +236,11 @@ input,select,textarea{font-family:inherit;font-size:inherit}
 
 /* ---------- Factory (dark section) ---------- */
 .factory__grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:start}
+.factory__visuals{display:grid;grid-template-columns:1.5fr 1fr;gap:16px;margin-bottom:32px}
+.factory__main-img img{width:100%;height:320px;object-fit:cover;border-radius:4px;display:block}
+.factory__side-imgs{display:flex;flex-direction:column;gap:16px}
+.factory__side-imgs img{width:100%;height:152px;object-fit:cover;border-radius:4px;display:block}
+@media (max-width:768px){.factory__visuals{grid-template-columns:1fr}}
 .factory__tags{display:flex;flex-wrap:wrap;gap:10px;margin:26px 0 32px}
 .factory__tags li{
   padding:8px 16px;border:1px solid rgba(255,255,255,.25);border-radius:20px;
