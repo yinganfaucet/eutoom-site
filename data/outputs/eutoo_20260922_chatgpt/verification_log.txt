@@ -1,0 +1,15 @@
+GEO Analyzer Verification Log
+Total records: 30
+
+⚠️  3 brand(s) at 0% — running per-brand verification: EUTOO, JOMOO, Watersino
+   Fields in data: ['answerText', 'citations', 'country', 'index', 'linksAttached', 'prompt', 'url', 'webSearchQuery']
+   Sample answerText (first 200 chars): When comparing bathroom hardware and faucet suppliers, avoid choosing on unit price alone . A supplier that is 10% cheaper can become more expensive if you get inconsistent finishes , missing parts, l
+   ○ EUTOO: still 0/30 (tried: EUTOO) — likely a genuine zero
+   ○ JOMOO: still 0/30 (tried: JOMOO) — likely a genuine zero
+   ○ Watersino: still 0/30 (tried: Watersino) — likely a genuine zero
+❌ No additional mentions found — the zeros look genuine.
+
+Final results:
+  EUTOO: 0 mentions (0.0%)
+  JOMOO: 0 mentions (0.0%)
+  Watersino: 0 mentions (0.0%)
