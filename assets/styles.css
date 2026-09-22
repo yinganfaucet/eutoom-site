@@ -204,3 +204,41 @@ input, select, textarea { font-family: inherit; font-size: inherit; }
   .wa-float { right: 20px; bottom: 20px; width: 50px; height: 50px; }
   .wa-float svg { width: 26px; height: 26px; }
 }
+
+
+/* ---------- Factory Visuals (Magazine Style) ---------- */
+.factory__grid { display: grid; grid-template-columns: 1fr; gap: 80px; align-items: start; }
+@media(min-width: 1024px) {
+  .factory__grid { grid-template-columns: 1fr 1fr; }
+}
+.factory__visuals { display: grid; grid-template-columns: 1.5fr 1fr; gap: 20px; margin-top: 40px; }
+.factory__visuals figure { position: relative; margin: 0; overflow: hidden; background: var(--secondary); transition: transform 0.4s var(--ease); }
+.factory__visuals figure:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+.factory__visuals img { width: 100%; height: 100%; object-fit: cover; opacity: 0.8; transition: opacity 0.4s var(--ease), transform 0.7s var(--ease); }
+.factory__visuals figure:hover img { opacity: 1; transform: scale(1.03); }
+.factory__main-img { height: 100%; min-height: 400px; }
+.factory__side-imgs { display: flex; flex-direction: column; gap: 20px; }
+.factory__side-imgs figure { height: calc(50% - 10px); min-height: 190px; }
+.factory__visuals figcaption { 
+  position: absolute; bottom: 0; left: 0; right: 0; 
+  padding: 20px; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  color: var(--text-light); font-size: 11px; letter-spacing: 2px; font-weight: 500; 
+  font-family: var(--font-display); text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .factory__visuals { grid-template-columns: 1fr; }
+  .factory__main-img { min-height: 300px; height: 300px; }
+  .factory__side-imgs { flex-direction: row; }
+  .factory__side-imgs figure { height: 200px; width: 50%; }
+}
+@media (max-width: 480px) {
+  .factory__side-imgs { flex-direction: column; }
+  .factory__side-imgs figure { height: 250px; width: 100%; }
+}
+
+/* Fix for broken lang-switcher text in screenshot */
+.nav__cta .lang-switcher { display: inline-block; position: relative; }
+.nav__cta > a { display: none; } /* Hide raw links if they leaked outside dropdown */
+.nav__cta .lang-dropdown a { display: block; } /* Show only inside dropdown */
+.nav__cta > .btn { display: inline-flex; } /* Keep the CTA button visible */
