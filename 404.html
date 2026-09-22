@@ -4,33 +4,59 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-  <title>Page Not Found | EUTOOM — Quanzhou Guolan</title>
+  <title>Page Not Found | EUTOO — Quanzhou Guolan</title>
   <meta name="robots" content="noindex">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Poppins:wght@200;300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
 
-<header class="nav">
+<header class="nav nav--on-dark">
   <div class="wrap nav__inner">
-    <a class="logo" href="index.html">EUTOOM<b>.</b><small>QUANZHOU GUOLAN</small></a>
+    <a class="logo" href="index.html">EUTOO<b>.</b><small>QUANZHOU GUOLAN</small></a>
     <nav class="nav__links" aria-label="Main">
       <a class="nav__link" href="index.html">Home</a>
+      <a class="nav__link" href="about.html">About</a>
       <a class="nav__link" href="products.html">Products</a>
+      <a class="nav__link" href="faq.html">FAQ</a>
       <a class="nav__link" href="contact.html">Contact</a>
     </nav>
-    <button class="burger" aria-label="Open menu"><i></i><i></i><i></i></button>
+    <div class="nav__cta">
+      <div class="lang-switcher">
+        <button class="lang-btn">EN <span>▾</span></button>
+        <div class="lang-dropdown">
+          <a href="#" data-lang="en" data-code="EN">English</a>
+          <a href="#" data-lang="es" data-code="ES">Español</a>
+          <a href="#" data-lang="vi" data-code="VI">Tiếng Việt</a>
+          <a href="#" data-lang="de" data-code="DE">Deutsch</a>
+        </div>
+      </div>
+      <a class="btn btn--light" href="contact.html" style="color: #000; border: none; padding: 12px 24px; font-size: 13px;">Get a Quote</a>
+    </div>
+    <button class="burger" aria-label="Open menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    </button>
   </div>
 </header>
 
-<div class="mobile-menu">
-  <button class="mobile-close" aria-label="Close">×</button>
-  <a href="index.html">Home</a>
-  <a href="products.html">Products</a>
-  <a href="contact.html">Contact</a>
+<div class="mobile-menu" style="position: fixed; inset: 0; background: var(--secondary); z-index: 200; display: flex; flex-direction: column; padding: 60px 40px; transform: translateX(100%); transition: transform 0.4s var(--ease);">
+  <button class="mobile-close" aria-label="Close" style="position: absolute; top: 20px; right: 20px; color: #fff; font-size: 40px; font-weight: 300;">×</button>
+  <a href="index.html" style="color: #fff; font-family: var(--font-display); font-size: 24px; text-transform: uppercase; margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px;">Home</a>
+  <a href="about.html" style="color: #fff; font-family: var(--font-display); font-size: 24px; text-transform: uppercase; margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px;">About</a>
+  <a href="products.html" style="color: #fff; font-family: var(--font-display); font-size: 24px; text-transform: uppercase; margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px;">Products</a>
+  <a href="faq.html" style="color: #fff; font-family: var(--font-display); font-size: 24px; text-transform: uppercase; margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px;">FAQ</a>
+  <a href="contact.html" style="color: #fff; font-family: var(--font-display); font-size: 24px; text-transform: uppercase; margin-bottom: 30px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px;">Contact</a>
+  <div class="mobile-langs">
+    <button data-lang="en" data-code="EN">EN</button>
+    <button data-lang="es" data-code="ES">ES</button>
+    <button data-lang="vi" data-code="VI">VI</button>
+    <button data-lang="de" data-code="DE">DE</button>
+  </div>
+  <a class="btn btn--light" href="contact.html" style="color: #000; text-align: center; width: 100%;">Get a Quote</a>
 </div>
+<style>.mobile-menu.open { transform: translateX(0) !important; }</style>
 
 <section class="hero" style="min-height:80vh;min-height:80dvh">
   <div class="hero__grid" aria-hidden="true"></div>
@@ -46,5 +72,14 @@
 </section>
 
 <script src="assets/script.js" defer></script>
+
+<div id="google_translate_element" style="display:none;"></div>
+<script>
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({pageLanguage: 'en', autoDisplay: false}, 'google_translate_element');
+  }
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 </body>
 </html>
